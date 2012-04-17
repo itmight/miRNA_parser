@@ -1,0 +1,32 @@
+Andrew Yates 2012
+
+Loose script to compile a directory of ATLAS miRNA files into a tab-delimited matrix used as input to compute MIC via java MINE.jar.
+
+Parse sample names from file. Sample name like:
+----------
+TCGA-A6-2672-01A-01T-0827-13
+TCGA-A1-A0SE-01A-11R-A085-13
+
+File name examples:
+----------
+bcgsc.ca__IlluminaGA_miRNASeq__TCGA-A6-2672-01A-01T-0827-13__mirna_quantification.txt
+bcgsc.ca__IlluminaGA_miRNASeq__TCGA-A1-A0SE-01A-11R-A085-13__mirna_quantification.txt
+
+Ignore isoform files named like:
+----------
+bcgsc.ca__IlluminaGA_miRNASeq__TCGA-A1-A0SH-01A-11R-A085-13__isoform_quantification.txt
+
+
+File Format (tab delimited):
+----------
+barcode	miRNA_ID	read_count	reads_per_million_miRNA_mapped	cross-mapped
+TCGA-A6-2672-01A-01T-0827-13	hsa-let-7a-1	3613.0	2701.245803	N
+TCGA-A6-2672-01A-01T-0827-13	hsa-let-7a-2	7200.0	5383.052804	N
+TCGA-A6-2672-01A-01T-0827-13	hsa-let-7a-3	3799.0	2840.308	N
+
+Parse "miRNA_ID" column value as row name, "reads_per_million_miRNA_mapped" as value for associated sample.
+
+e.g., From the example above...
+----------
+In the resulting compiled, tab-delimited matrix, for the row identified by the variable name "hsa-let-7a-1" in the first column, the value of the column titled by the sample ID "TCGA-A6-2672-01A-01T-0827-13" has the value "2701.245803"
+
