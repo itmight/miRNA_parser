@@ -1,5 +1,9 @@
 Andrew Yates 2012
 
+USE:
+$ python parse.py /path/to/data/dir > miRNA.tab
+----------
+
 Loose script to compile a directory of ATLAS miRNA files into a tab-delimited matrix used as input to compute MIC via java MINE.jar.
 
 Parse sample names from file. Sample name like:
