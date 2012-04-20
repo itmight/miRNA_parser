@@ -2,7 +2,10 @@
 """Interactive script for ATLAS miRNA parser.
 
 USE:
-$ python script.py [path_to_data_dir] > miRNA.tab 2> log.txt
+$ python parse.py [path_to_data_dir] > miRNA.tab 2> log.txt
+
+e.g.
+$ python script.py ~/Dropbox/biostat/miRNA_data/June_colon\ adenocarcinoma_COAD_miRNA/Level_3 > ~/Dropbox/biostat/miRNA_data/June_colon\ adenocarcinoma_COAD_miRNA/miRNA_coad_matrix.tab 2> ~/Dropbox/biostat/miRNA_data/June_colon\ adenocarcinoma_COAD_miRNA/miRNA_coad_log.txt
 """
 import sys
 from __init__ import *

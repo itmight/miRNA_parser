@@ -1,10 +1,16 @@
 Andrew Yates 2012
 
-USE:
-$ python parse.py /path/to/data/dir > miRNA.tab
+Compile a directory of ATLAS miRNA data files into a tab-delimited matrix intended for use to compute MIC via the reference implementation of MINE.jar.
+
+FILES:
+
+1) __init__.py: module for import
+2) test.py: unit tests, run as 
+  $ python test.py
+3) script.py: shell wrapper around module to execute module tools on the command line
+  $ python script.py /path/to/data/dir > miRNA.tab 2> log.txt
 ----------
 
-Loose script to compile a directory of ATLAS miRNA files into a tab-delimited matrix used as input to compute MIC via java MINE.jar.
 
 Parse sample names from file. Sample name like:
 ----------

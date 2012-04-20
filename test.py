@@ -54,6 +54,11 @@ TCGA-A6-2676-01A-01T-0827-13	hsa-let-7a-4	0.0	0.0	N
 """I am bad. Do not try to read me."""
 }
 
+ISO_BAD_INPUT = \
+"""barcode	miRNA_ID	isoform_coords	read_count	reads_per_million_miRNA_mapped	cross-mapped	miRNA_region_annotation	miRNA_region_accession
+TCGA-A1-A0SH-01A-11R-A085-13	hsa-let-7a-1	hg19:9:96938242-96938263:+	1.0	0.629715	N	MIMAT0000062	mature
+"""
+
 # Expected tab-delimited matrix output with no header
 OUTPUT = \
 """hsa-let-7a-1\t2701.245803\t2693.766243\t2421.620985
@@ -86,6 +91,10 @@ class TestAtlasMIRNAParse(unittest.TestCase):
 
   def test_parse_bad_file(self):
     d = parse_file(StringIO(FILES['.DS_Garbage']))
+    self.assertEqual(d, None)
+
+  def test_parse_iso_bad_file(self):
+    d = parse_file(StringIO(ISO_BAD_INPUT))
     self.assertEqual(d, None)
 
   def test_good_file(self):
