@@ -15,12 +15,17 @@ from __init__ import *
 
 
 def main(dir_name):
-  """Compile all miRNA files from a directory into a single matrix."""
+  """Compile all miRNA files from a directory into a single matrix.
+
+  Args:
+    dir_name: name of directory containing miRNA sample files to parse
+  """
   maps = compile_directory(dir_name)
-  
-  sys.stderr.write("#Parsed %s with %s on %s.\n" % \
+  sys.stderr.write("#Parsed directory %s using module %s at %s.\n" % \
     (dir_name, os.getcwd(), timestamp()))
-  print_matrix(maps, out=sys.stdout, err=sys.stderr)
+
+  desc = "Files parsed from %s" % (dir_name)
+  print_matrix(maps, desc=desc, out=sys.stdout, err=sys.stderr)
 
 
 if __name__ == "__main__":
@@ -29,5 +34,5 @@ if __name__ == "__main__":
   except:
     print USE_MSG
     sys.exit(1)
-  main(sys.argv[1])
+  main(dir_name)
     
