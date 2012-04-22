@@ -156,7 +156,14 @@ class TestAtlasMIRNAParse(unittest.TestCase):
     # assert true for remaining output
     self.assertEqual("\n".join(r[2:]), OUTPUT)
 
-  
+  def test_print_matrix_meta_desc(self):
+    out, err = StringIO(), StringIO()
+    # Simulate compile_directory to generate map
+    maps = fake_compile_directory()
+    print_matrix(maps, out, err, print_meta=False, print_header=False, desc="HELLO")
+    r = out.getvalue().split('\n')
+    self.assertEqual(r[0], "#HELLO")
+    self.assertEqual("\n".join(r[1:]), OUTPUT)  
 
     
 if __name__ == "__main__":
